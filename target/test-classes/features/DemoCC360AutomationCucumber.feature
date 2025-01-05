@@ -1,3 +1,4 @@
+
 Feature: realizar uma busca completa de uma informação na pagina Search 360
 
   Scenario Outline: realizar uma busca completa na pagina Search 360
