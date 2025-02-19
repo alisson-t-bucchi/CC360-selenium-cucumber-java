@@ -1,5 +1,8 @@
 # BDD in a Page Object project of Full Search Automation Test on the Search 360 Page with Cucumber.
-This project uses Cucumber, Selenium, and Java to automate the process of searching for information on the Search 360 page.
+This project uses **Cucumber**, **Selenium Webdriver**, and **Java** to automate the process of searching for information on the Search 360 page a onmichannel plataform by Cisco.  
+The tests was organized with **JUnit 4** and interact with a web application to ensure the functionality of various forms and dropdowns.  
+This project has POM.XML configuration to produce detailed error reports with **Surefire Reports** and insert in **DevOps methodology to be integrated in CD/CI pipeline** with **Jenkins** and **Docker**. 
+---
 
 ## Description
 The goal of this project is to perform a complete search for information on the Search 360 page, covering data entry and interaction with various elements of the page interface, such as text fields, dropdown lists, and buttons.
@@ -14,12 +17,54 @@ The automated test performs a sequence of actions as described in the Feature Fi
 6. Closing the page after the process is complete.
 
 ## Prerequisites
-Before running the tests, you need to set up your development environment. The required tools are:
-    Java 11 or higher (The project is configured for Java 9, but can easily be adapted for newer versions).
-    Maven (to manage dependencies and run the build).
-    Selenium WebDriver (for browser interaction).
-    Cucumber (to define and execute the tests).
-    WebDriverManager (to automatically manage browser drivers).
+Before running the tests, ensure you have the following installed:
+
+- **JDK 11 or higher**: Required for compiling and running Java code.
+- **Maven** or **Gradle**: To manage dependencies (choose one based on your preference).
+- **Selenium WebDriver**: To perform browser automation.
+- **WebDriverManager**: To automatically manage browser drivers.
+- **JUnit 4**: Testing framework used to organize and execute tests.
+- **ChromeDriver**: The WebDriver used for testing with Google Chrome.  
+
+## Dependencies
+
+You can use **Maven** or **Gradle** to manage the dependencies.
+
+### Maven (`pom.xml`):
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>io.github.bonigarcia</groupId>
+        <artifactId>webdrivermanager</artifactId>
+        <version>5.2.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.7.2</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.7.2</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.8.0</version>
+    </dependency>
+</dependencies>
+
+```
+
 
 ## How to Run the Project
 1. Clone the repository:
@@ -42,6 +87,7 @@ Before running the tests, you need to set up your development environment. The r
 6. Project Structure
 The project is organized as follows:
 
+```
 CC360-selenium-cucumber-java/
 src
 |── main
@@ -60,21 +106,7 @@ src
 |
 ├── pom.xml                                    # Maven configuration file
 └── README.md                                  # This file
-
-## Gherkin scenario example:
-Feature: Search360 Test
-
-  Scenario: Testar busca com filtros no Search360
-    Given abrir a pagina
-    When meto "1254", "Francisco Carneiro", "francisco.carneiro@gmail.com", "913478990"
-    And clico em Linha de Atendimento e seleciono opção
-    And clico em Categoria e seleciono opção
-    And clico em Sub-categoria e seleciono opção
-    And clico em Motivo e seleciono opção
-    And clico em Estado e seleciono option
-    And seleciono um periodo
-    And clico em Procurar
-    Then fecho a pagina
+```
 
 7. Execution Flow:
 - Feature File (.feature):
@@ -98,6 +130,7 @@ Feature: Search360 Test
 ## Example .feature File
 The search360.feature file contains the test scenario for the full search on the Search 360 page:
 
+```
 Feature: Perform a full search on the Search 360 page
 
   Scenario Outline: Perform a full search on the Search 360 page
@@ -119,9 +152,19 @@ Feature: Perform a full search on the Search 360 page
       | referencia   | agente   | email   | telefone   |
       | "referencia" | "agente" | "email" | "telefone" |
 
+```
 
 ## DemoCC360AutomationCucumber.java File
 The Cucumber step definitions file (DemoCC360AutomationCucumber.java) implements the logic for each of the steps defined in the .feature file.
+
+### Additional Information
+    
+- WebDriver: The tests are configured to use Google Chrome. To use another browser (e.g., Firefox), modify the driver = new ChromeDrive (); line in the code.
+
+- WebDriverManager: Automatically manages the browser driver, ensuring compatibility between the Selenium version and the browser's driver.
+    
+- JUnit: Tests are organized using JUnit 4, and execution order is based on method names (due to the @FixMethodOrder(MethodSorters.NAME_ASCENDING) annotation).  
+
 
 ## Contribution
 If you would like to contribute to the project, follow these steps:
@@ -131,4 +174,4 @@ If you would like to contribute to the project, follow these steps:
 4. Submit a pull request.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
