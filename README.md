@@ -1,8 +1,8 @@
-# BDD in a Page Object project of Full Search Automation Test on the Search 360 Page with Cucumber.
+# BDD in a Page Object project of Full Search Automation Test on the Search 360 Page with Cucumber.  
 This project uses **Cucumber**, **Selenium Webdriver**, and **Java** to automate the process of searching for information on the Search 360 page a onmichannel plataform by Cisco.  
 The tests was organized with **JUnit 4** and interact with a web application to ensure the functionality of various forms and dropdowns.  
-This project has POM.XML configuration to produce detailed error reports with **Surefire Reports** and insert in **DevOps methodology to be integrated in CD/CI pipeline** with **Jenkins** and **Docker**. 
----
+This project has POM.XML configuration to produce detailed error reports with **Surefire Reports** and insert in **DevOps methodology to be integrated in CD/CI pipeline** with **Jenkins** and **Docker**.   
+
 
 ## Description
 The goal of this project is to perform a complete search for information on the Search 360 page, covering data entry and interaction with various elements of the page interface, such as text fields, dropdown lists, and buttons.
